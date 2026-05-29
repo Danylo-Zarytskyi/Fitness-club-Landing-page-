@@ -1,18 +1,15 @@
 import { useState } from "react";
 import "./App.css";
 import Modal from "./components/modal";
-import {
-  PricingSection,
-  LeadFormSection,
-  TestimonialsSection,
-  Footer,
-} from "./components/PricingAndFooter";
-import {
-  Header,
-  HeroSection,
-  AboutSection,
-  FeaturesSection,
-} from "./components/sections";
+
+import { Header } from "./components/sections/Header";
+import { HeroSection } from "./components/sections/HeroSection";
+import { AboutSection } from "./components/sections/AboutSection";
+import { FeaturesSection } from "./components/sections/FeaturesSection";
+import { PricingSection } from "./components/sections/PricingSection";
+import { LeadFormSection } from "./components/sections/LeadFormSection";
+import { TestimonialsSection } from "./components/sections/TestimonialsSection";
+import { Footer } from "./components/sections/Footer";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,16 +42,18 @@ function App() {
       />
 
       <div
-        className={`transition-all duration-300 ${isModalOpen ? "blur-sm" : "blur-0"}`}
+        className={`transition-all duration-300 ${
+          isModalOpen ? "blur-sm" : "blur-0"
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div>
           <Header onOpenModal={openModal} />
           <HeroSection onOpenModal={openModal} />
           <AboutSection />
           <FeaturesSection />
           <PricingSection onOpenModal={openModal} />
-          <LeadFormSection onOpenModal={openModal} />
           <TestimonialsSection />
+          <LeadFormSection onOpenModal={openModal} />
           <Footer />
         </div>
       </div>

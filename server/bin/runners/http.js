@@ -1,14 +1,11 @@
 import app from "../../server.js";
 
-export default async function httpRunner() {
+const httpRunner = () => {
   const PORT = process.env.PORT || 4000;
 
-  try {
-    app.listen(PORT, () => {
-      console.log(`🚀 Сервер запущено на порту ${PORT}`);
-    });
-  } catch (error) {
-    console.error("❌ Помилка запуску сервера:", error);
-    process.exit(1);
-  }
-}
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Server on ${PORT}`);
+  });
+};
+
+export default httpRunner;
